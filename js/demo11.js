@@ -61,7 +61,7 @@ function imageWasClicked(event){
   pizzaIndex2 = nextPizzaIndex2;
 
 
-  imageElements[0].src = allPizzas[pizzaIndex1].imageUrl; 
+  imageElements[0].src = allPizzas[pizzaIndex1].imageUrl;
   imageElements[1].src = allPizzas[pizzaIndex2].imageUrl;
 
 
