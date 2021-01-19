@@ -24,6 +24,10 @@ nav {
   text-decoration:underline;
 }
 
+section {
+  padding-left: 300px;
+}
+
 img {
   width: 250px;
   height: 150px;
