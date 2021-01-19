@@ -116,10 +116,16 @@ for(var i = 0; i < imageElements.length; i++){
   imageElements[i].addEventListener('click', imageWasClicked);
 }
 
-// ---------- TODO create function that shows results to show the image name - text.content -----------
-Photo.prototype.render = function(){
-  this.name();
-  for(var i = 0; i < imageElements.length; i++){
-    name.textContent = this.name[i];
-  }
-};
+var ulElement = document.getElementById('voteResults');
+// ---------- TODO create function that shows results to show the image name - text.content. make an li, append the ul-----------
+// Photo.prototype.render = function(){
+//   var ulEle = document.createElement('ul');
+//   var liEle = document.createElement('li');
+//   for (var i = 0; i < allImages.length; i++){
+//     var allImages = document.createElement('td');
+//     allImages.textContent = this.name;
+//     ulEle.appendChild(allImages);
+//     liEle.appendChild(allImages);
+//   }
+//   ulEle.appendChild(allImages);
+//   liEle.appendChild(allImages);
