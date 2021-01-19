@@ -2,9 +2,29 @@
 console.log('app js is connected!');
 
 
+/** ------------ TODO ------------------
+1. I would like a visual representation of how many times a product was clicked so that I can visually analyze the results.
+
+2. Using ChartJS (imported from CDN),
+3. display the vote totals and the number of times a product was viewed in a bar chart format. (hint: don’t forget about the <canvas> tags)
+4. Place the bar chart in the section located beneath your three product images
+5. The bar charts should only appear after all voting data has been collected.
+
+*/
+
+
+
+
+
+
+
+
+
+
 //These are in an html collection(array) use ref to image index instead of id's for tracking images shown we are still going to count total clicks and each image's click amount.
 
 var imageElements = document.getElementsByTagName('img');
+console.log('image Elements source', imageElements);
 
 
 var imageIndex1 = 0;
@@ -22,10 +42,26 @@ function Photo(name, imageUrl){
   this.timesClicked = 0;
   this.timesShown = 0;
   allImages.push(this);
+  // console.log('this is our image objects being created: ', this);
 }
 
 
-// actually create our Image's
+// Add a function for our chart to render pizza data from our objects
+function getImageArray(nameOfThePropertyIWant){
+  var answer = [];
+
+  for(var i = 0; i < allImages.length; i++){
+    answer[i] = allImages[i][nameOfThePropertyIWant];
+  }
+  console.log('name of the property i want ', answer);
+  return answer;
+}
+
+
+
+
+
+// actually create our Images
 new Photo('bag', 'images/bag.jpg');
 new Photo('banana', 'images/banana.jpg');
 new Photo('bathroom', 'images/bathroom.jpg');
@@ -50,20 +86,21 @@ new Photo('wine-glass', 'images/wine-glass.jpg');
 
 var totalClicks = 0;
 function imageWasClicked(event){
-
   totalClicks++;
-  // ------- TODO add an else if condition for image 3 XXX DONE XXX ---------
+  //console.log(totalClicks);
+  // ------- TODO add an else if condition for image 3 Class11 XXX DONE XXX ---------
   if(event.srcElement.id === '1'){
     allImages[imageIndex1].timesClicked++;
-  } else if (event.srcElement[imageIndex2] === '2'){
+  } else if (event.srcElement.id === '2'){
     allImages[imageIndex2].timesClicked++;
-  } else if (event.srcElement[imageIndex3] === '3'){
+  } else if (event.srcElement.id === '3'){
     allImages[imageIndex3].timesClicked++;
   }
 
 
   //logic so that we dont see the same images from click to click
   var nextImageIndex1 = Math.floor(Math.random() * allImages.length);
+  // console.log('next pizza one from our random(): ', nextPizzaIndex1);
   while((nextImageIndex1 === imageIndex1) || (nextImageIndex1 === imageIndex2) || (nextImageIndex1 === imageIndex3)){
     nextImageIndex1 = Math.floor(Math.random() * allImages.length);
   }
@@ -81,14 +118,15 @@ function imageWasClicked(event){
 
   //relfect the updates to the new values next images
   //set up reference to new image images.
-  // ------ image 3 XXX DONE XXX-------
+  // ------ image 3 Class11 XXX DONE XXX-------
   imageIndex1 = nextImageIndex1;
   imageIndex2 = nextImageIndex2;
   imageIndex3 = nextImageIndex3;
 
-  // ------- TODO increment times shown make them like the one that shows the timesShown XXX DONE XXX--------
+  // ------- TODO increment times shown make them like the one that shows the timesShown Class11 XXX DONE XXX  --------
   imageElements[0].src = allImages[imageIndex1].imageUrl;
   allImages[imageIndex1].timesShown++;
+  console.log(allImages[imageIndex1].timesShown);
   imageElements[1].src = allImages[imageIndex2].imageUrl;
   allImages[imageIndex2].timesShown++;
   imageElements[2].src = allImages[imageIndex3].imageUrl;
@@ -101,14 +139,45 @@ function imageWasClicked(event){
       footerElement.firstElementChild.remove();
     }
     footerElement.textContent = 'you voted on 5 images. you are done!';
-  }
 
-  if(totalClicks >= rounds){
-    var timeLeft = 10;
-    alert('You have ' + timeLeft + 'remaining until you are able to vote again.');
-  }
 
-}//closing image was clicked.
+
+    // --------------------Add ul list items ----------------
+    // --------- percentage of voteResults -------------
+    var asideUl = document.getElementById('voteResults');
+
+    for(var i = 0; i < allImages.length; i++){
+      var voteResultsListItem = document.createElement('li');
+      voteResultsListItem.textContent = `${allImages[i].name} was clicked on ${allImages[i].timesClicked} times. And was shown ${allImages[i].timesShown} times.`;
+      asideUl.appendChild(voteResultsListItem);
+
+
+      var percentageListItem = document.createElement('li');
+      if(allImages[i].timesShown === 0){
+        var math = `ZERO clicks and shown ${allImages[i].timesShown} times.`;
+      } else {
+        math = Math.round(((allImages[i]['timesClicked'] / allImages[i]['timesShown']).toFixed(2) * 100)) + '%';
+      }
+      percentageListItem.textContent = `${allImages[i].name} percentage of clicked on vs times shown is ` + math;
+
+      asideUl.appendChild(percentageListItem);
+
+    }
+  }
+}
+
+
+// ------------------------ TODO add ul list items -----------------
+// ---------- vote cooldown ----------
+if(totalClicks >= rounds){
+  var timeLeft = 10;
+  alert('You have ' + timeLeft + 'remaining until you are able to vote again.');
+
+  for(var i = 0; i < imageElements.length; i++){
+    console.log('this is the even listener for the click on image event.');
+    imageElements[i].removeEventListener('click', imageWasClicked);
+  }
+}
 
 
 for(var i = 0; i < imageElements.length; i++){
@@ -129,3 +198,12 @@ var ulElement = document.getElementById('voteResults');
 //   }
 //   ulEle.appendChild(allImages);
 //   liEle.appendChild(allImages);
+
+
+
+// As a marketeer, I want to prevent users from seeing the same image in two subsequent iterations, so that they are not biased.
+// Update your algorithm to randomly generate three unique product images from the images directory.
+//Update your algorithm so that new products are generated, confirm that these products are not duplicates from the immediate previous set.
+//As a marketing manager, I would like a visual representation of how many times a product was clicked so that I can visually analyze the results.
+
+
