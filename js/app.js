@@ -59,9 +59,7 @@ function getImageArray(nameOfThePropertyIWant){
 
 
 
-
-
-// actually create our Images
+// actually create our Images (20 images)
 new Photo('bag', 'images/bag.jpg');
 new Photo('banana', 'images/banana.jpg');
 new Photo('bathroom', 'images/bathroom.jpg');
@@ -185,7 +183,7 @@ for(var i = 0; i < imageElements.length; i++){
   imageElements[i].addEventListener('click', imageWasClicked);
 }
 
-var ulElement = document.getElementById('voteResults');
+// var ulElement = document.getElementById('voteResults');
 // ---------- TODO create function that shows results to show the image name - text.content. make an li, append the ul-----------
 // Photo.prototype.render = function(){
 //   var ulEle = document.createElement('ul');
@@ -206,4 +204,72 @@ var ulElement = document.getElementById('voteResults');
 //Update your algorithm so that new products are generated, confirm that these products are not duplicates from the immediate previous set.
 //As a marketing manager, I would like a visual representation of how many times a product was clicked so that I can visually analyze the results.
 
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['Bag', 'Banana', 'Bathroom', 'Boots', 'Breakfast', 'Bubblegum', 'Chair', 'Cthulhu', 'Dog Duck', 'Dragon', 'Pen', 'Pet Sweep', 'Scissors', 'Shark', 'Sweep','Tauntaun', 'Unicorn', 'USB', 'Water Can', 'Wine Glass'],
+    datasets: [{
+      label: '# of Votes',
+      data: [12, 19, 3, 5, 2, 3, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19],
+      backgroundColor: [
+        'rgba(255, 0, 0, 0.2)', // bag | red
+        'rgba(158, 0, 0, 0.2)', // banana | dark red
+        'rgba(255, 149, 0, 0.2)', // bathroom | orange
+        'rgba(255, 242, 0, 0.2)', // boots | yellow
+        'rgba(149, 255, 0, 0.2)', // breakfast | light green
+        'rgba(0, 255, 162, 0.2)', // bubblegum | blue green
+        'rgba(0, 255, 251, 0.2)', // chair | light blue
+        'rgba(0, 170, 255, 0.2)', // cthulhu | darker blue
+        'rgba(0, 42, 255, 0.2)', // dog-duck | purple
+        'rgba(106, 0, 255, 0.2)', // dragon | violet
+        'rgba(162, 0, 255, 0.2)', // pen | pink
+        'rgba(230, 0, 255, 0.2)', // pet sweep | brighter pink
+        'rgba(255, 0, 111, 0.2)', // scissors | hot pink
+        'rgba(155, 121, 181, 0.2)', // shark | feint darker purple
+        'rgba(115, 156, 95, 0.2)', // sweep | camo green
+        'rgba(117, 86, 0, 0.2)', // tauntaun | dark yellow brown
+        'rgba(117, 67, 67, 0.2)', // unicorn | darker feint red
+        'rgba(101, 148, 0, 0.2)', // usb | lighter camo green
+        'rgba(130, 130, 130, 0.2)', // watercan | gray
+        'rgba(0, 0, 0, 0.2)', // wine glass | black
+
+      ],
+      borderColor: [
+        'rgba(255, 0, 0, 1)', // bag | red
+        'rgba(158, 0, 0, 1)', // banana | dark red
+        'rgba(255, 149, 0, 1)', // bathroom | orange
+        'rgba(255, 242, 0, 1)', // boots | yellow
+        'rgba(149, 255, 0, 1)', // breakfast | light green
+        'rgba(0, 255, 162, 1)', // bubblegum | blue green
+        'rgba(0, 255, 251, 0.2)', // chair | light blue
+        'rgba(0, 170, 255, 0.2)', // cthulhu | darker blue
+        'rgba(0, 42, 255, 0.2)', // dog-duck | purple
+        'rgba(106, 0, 255, 0.2)', // dragon | violet
+        'rgba(162, 0, 255, 0.2)', // pen | pink
+        'rgba(230, 0, 255, 0.2)', // pet sweep | brighter pink
+        'rgba(255, 0, 111, 0.2)', // scissors | hot pink
+        'rgba(155, 121, 181, 0.2)', // shark | feint darker purple
+        'rgba(115, 156, 95, 0.2)', // sweep | camo green
+        'rgba(117, 86, 0, 0.2)', // tauntaun | dark yellow brown
+        'rgba(117, 67, 67, 0.2)', // unicorn | darker feint red
+        'rgba(101, 148, 0, 0.2)', // usb | lighter camo green
+        'rgba(130, 130, 130, 0.2)', // water can |
+        'rgba(0, 0, 0, 0.2)', // wine glass | black
+
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+});
 
