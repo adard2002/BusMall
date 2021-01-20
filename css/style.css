@@ -4,15 +4,51 @@
 }
 
 /* ---------- Header and Nav ----------*/
-#changeHOne {
+h1 {
   font-size: 50px;
   text-align: center;
+  text-shadow: 1px 10px 4px rgba(112, 124, 235, 0.8);
+  font-family: 'Staatliches', cursive;
 }
 
 nav {
   text-align: center;
   font-size: 1.5em;
 }
+
+h2 {
+  text-align: center;
+  font-size: 25px;
+  text-decoration: underline;
+  font-family: 'Staatliches', cursive;
+}
+
+p {
+  font-size: 25px;
+  font-family: 'Staatliches', cursive;
+  text-decoration: underline;
+}
+
+aside {
+  height: 1060px;
+  width: 550px;
+  background-color: rgba(112, 124, 235, 0.8);
+  float: left;
+  margin-left: 25px;
+  margin-bottom: 25px;
+  padding: 10px;
+}
+
+button {
+  font-size: 15px;
+  text-align: center;
+  margin-left: 570px;
+  margin-bottom: 25px;
+}
+body {
+  background-color: paleturquoise;
+}
+
 
 
 
@@ -25,7 +61,7 @@ nav {
 }
 
 section {
-  padding-left: 300px;
+  padding-left: 590px;
 }
 
 img {
@@ -54,13 +90,21 @@ main {
 } */ 
 
 
-/* --------- table! ------------- */ 
 
+/* ----Class 13 demo ----*/
+li {
 
+  padding: 5px;
+}
 
+form{
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
 
-
-
+canvas {
+  background-color: white;
+}
 
 
 

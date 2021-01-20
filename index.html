@@ -7,15 +7,14 @@
     <title>BusMall</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
-  <body id="changeColor">
-
-
-
+  <body>
     <header>
-      <h1 id="changeHOne">BusMall</h1>
+      <h1>BusMall</h1>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -32,43 +31,32 @@
       </section> -->
 
 
-
-
-      <aside>
-        <h2>Vote Results</h2>
-         <ul id="voteResults"></ul>
-      </aside>
-      <section>
-        <img id="1" src="images/bag.jpg"/>
-        <img id="2" src="images/banana.jpg"/>
-        <img id="3" src="images/bathroom.jpg"/>
-      </section>
-
-
-
-
-
-
-      <!-- <h2 id="busVoting">Vote on an Image!</h2>
     <main>
-        <img id="1" src="images/bag.jpg"/>
-        <img id="2" src="images/banana.jpg"/>
-        <img id="3" src="images/bathroom.jpg"/>
-    </main> -->
+      <form id="nameForm">
+        <label>What is your name?</label>
+        <input id="name" type="text" name="name" />
+      </form>
+        <aside>
+          <h2>Vote Results</h2>
+          <ul id="voteResults"></ul>
+        </aside>
+                <p>Vote on some images!</p>
+
+        <section>
+          <img id="1" src="images/bag.jpg"/>
+          <img id="2" src="images/banana.jpg"/>
+          <img id="3" src="images/bathroom.jpg"/>
+        </section>
+      </main>
+      <button type="submit">View Results</button>
 
     <ul id="voteResults"></ul>
 
+      <footer>
+    <canvas id="myResultsChart" width="800" height="400"></canvas>
+      </footer>
 
-
-    <button></button>
-
-    <canvas id="myChart" width="800" height="400"></canvas>
-      <footer></footer>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js
-
-
-
-      "></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
